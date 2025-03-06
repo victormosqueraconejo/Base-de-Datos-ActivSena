@@ -1,5 +1,9 @@
 -- CREAR BASE DE DATOS Y USARLA
 
+-- Cambiar usuario y demas por auto incrementales
+-- Reemplazar con valores unicos
+-- Agregar para borrar en cascada
+
 DROP DATABASE BaseDeDatosMar2;
 
 CREATE DATABASE BaseDeDatosMar2;
@@ -39,7 +43,7 @@ CREATE TABLE
     FechaRegistro DATE NOT NULL,
     IdRoles VARCHAR(50) NOT NULL,
     CONSTRAINT Pk_Identificacion PRIMARY KEY (IdentificacionUsuario),
-    CONSTRAINT Fk_IdRoles FOREIGN KEY (IdRoles) REFERENCES TablaRoles (IdRoles)
+    CONSTRAINT Fk_IdRoles FOREIGN KEY (IdRoles) REFERENCES TablaRoles (IdRoles) ON DELETE CASCADE ON UPDATE CASCADE -- Hacer en todas la llaves foraneas
   );
 
 CREATE TABLE TablaAlquilerElementos (
